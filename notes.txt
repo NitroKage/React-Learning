@@ -1,0 +1,24 @@
+REACT - a library which tells us how we can make a web page
+
+-> react-dom - for web apps
+-> react-native - for mobile apps
+
+Creating a react app - 
+
+npm - Node Package Manager
+npx - Node Package Executor
+
+-> using npx
+    
+    npx create-react-app basicreact
+
+-> using vite
+
+It bascially installs only the mecessary dependencies making the project light weight 
+and also boosts up the server run time.
+
+
+
+
+
+
