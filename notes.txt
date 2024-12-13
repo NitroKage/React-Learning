@@ -1,9 +1,11 @@
-REACT - a library which tells us how we can make a web page
+REACT - a library which tells us how we can make a single page application (spa)
 
 -> react-dom - for web apps
 -> react-native - for mobile apps
 
+----------------------
 Creating a react app - 
+----------------------
 
 npm - Node Package Manager
 npx - Node Package Executor
@@ -16,6 +18,115 @@ npx - Node Package Executor
 
 It bascially installs only the mecessary dependencies making the project light weight 
 and also boosts up the server run time.
+
+--------------
+Project Flow - 
+--------------
+
+node_modules - all the dependencies shown in package.json file are shown in this folder
+
+package.json - file that contain all the dependencies 
+
+package-lock.json - same as package.json but locks the stable version of all the dependencies (all the dependencies will work on this version only)
+
+index.html 
+
+-> nothing much just an empty div tag with id = 'root'
+
+index.js 
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+    );
+
+-> create a variable root to store something
+-> ReactDOM - react creates it's own DOM which contains a method createRoot()
+-> createRoot() - where to create a root? this is where we will pass a HTML element 
+-> document.getElementById('root') - get an element from HTML where id = 'root'
+
+In short,
+react creates it's own DOM and calls a function to create a root on the element where id = 'root' 
+and store it in a constant variable root
+
+-> root.render() - render something but what?
+-> <React.StrictMode>
+        <App />
+    </React.StrictMode> - use react strict mode and render <App />
+
+* <React.StrictMode> - if we remove this, the app will still run as it used during development specifically for 
+optimization 
+
+app.js 
+    
+    function App() {
+    return (
+        <h1>Hello World</h1>
+    );
+    }
+
+    export default App;
+
+there's a function called App which returns an HTML tag and then we export it so that the index.js can render it
+
+take a function -> it reutrns HTML -> export the function -> react will render the HTML 
+
+Now the question arise if we haven't include any js script in HTML, so how index.js was rendered?
+
+Answer : go to package.json where you will find a dependency "react-scripts" which is responsible to load/inject index.js in index.html
+
+This was all about how react works using the first method.
+Now we'll see how it works with Vite.
+
+Project Flow (Vite + React) - 
+
+Now the interesting thing to notice is that, package.json file doesnt't contain "react-scripts" dependency,
+so how was it able to render the element?
+
+Answer : in index.html file, they have directly loaded/injected the main.jsx file.
+
+The project flow is same. Just a few changes to make the code smaller that's it.
+
+We created a test.js 
+
+    function TestFunc(){
+    return(
+        <h3>How are you?</h3>
+    )
+    }
+
+    export default TestFunc
+
+Now when we import the function in App.jsx, it will show errors on browser console log saying,
+that the function name should start with capital letter and will ask to change the extension of file from js to jsx (This error is exclusive for vite-react only). 
+After renaming the file and changing the extension, we can easily import and display it.
+
+* Also when importing multiple componenets, jsx wants us to use <> (fragments) to wrap all the components in one element,
+because jsx can only display on component.
+
+We can either use <div> or <> (empty tags/fragments) to wrap all the components.
+
+If we do the same procedure in react(without vite), the same problems will occur and same solution will be implemented.
+
+* Best programming practice is to follow the naming convention which require us to name the components with
+first letter capital along with the function name.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

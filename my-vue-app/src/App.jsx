@@ -1,8 +1,11 @@
+import TestFunc from "./test"
 
 function App() {
 
   return (
-    <h1>react with vite | Shubham Garg</h1>
+
+    <TestFunc/>
+
   )
 }
 

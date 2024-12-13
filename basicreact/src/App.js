@@ -1,7 +1,13 @@
+import Message from "./Test"
 
 function App() {
   return (
-    <h1>Hello World</h1>
+
+    <>
+    <Message/>
+    <h1>Message printed</h1>
+    </>
+
   );
 }
 
